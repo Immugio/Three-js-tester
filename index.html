@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <title>Three.js Testing Environment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            color: #000;
+            font-family: Monospace;
+            font-size: 13px;
+            text-align: center;
+            font-weight: bold;
+
+            background-color: #fff;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #info {
+            color: #000;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            padding: 5px;
+
+        }
+
+        #btn {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+        }
+        #btn button { background-color: greenyellow; height: 30px;}
+
+
+    </style>
+</head>
+
+<body>
+    <div id="info">
+        <span>
+            <span style="color: red">X - Red</span>
+            <span style="color: green">Y - Green</span>
+            <span style="color: blue">Z - Blue</span>
+        </span>
+    </div>
+
+    <div id="btn">
+        <a href="https://github.com/Immugio">See me on github</a>
+    </div>
+
+    <script src="lib/three.min.js""></script>
+    <script src="lib/OrbitControls.js"></script>
+    <script src="lib/Detector.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

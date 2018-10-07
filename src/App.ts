@@ -23,11 +23,13 @@ export class App {
 
     private init(): void {
 
+        window.addEventListener("resize", () => this.onWindowResize());
+
         this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color(0xcccccc);
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setClearColor(new THREE.Color(0xFFFFFF));
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(this.renderer.domElement);
 

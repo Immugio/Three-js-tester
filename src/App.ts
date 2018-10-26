@@ -66,13 +66,25 @@ export class App {
         this.scene.add(this.sample);
 
         // Lights
-        var light1 = new THREE.DirectionalLight(0xffffff);
-        light1.position.set(1, 1, 1);
-        this.scene.add(light1);
+        var spotLight = new THREE.SpotLight(0xFFFFFF);
+        spotLight.position.set(-40, 40, -15);
+        spotLight.position.copy(this.camera.position);
+        spotLight.position.x = -spotLight.position.x;
+        spotLight.castShadow = true;
+        spotLight.shadow.mapSize = new THREE.Vector2(1024 * 5, 1024 * 5);
+        spotLight.shadow.camera.far = 5000;
+        spotLight.shadow.camera.near = 10;
+        this.scene.add(spotLight);
 
-        var light2 = new THREE.DirectionalLight(0x002288);
-        light2.position.set(- 1, - 1, - 1);
-        this.scene.add(light2);
+        // var light1 = new THREE.DirectionalLight(0xffffff);
+        // light1.position.set(1, 1, 1);
+        // light1.castShadow = true;
+        // this.scene.add(light1);
+
+        // var light2 = new THREE.DirectionalLight(0x002288);
+        // light2.castShadow = true;
+        // light2.position.set(- 1, - 1, - 1);
+        // this.scene.add(light2);
 
         var light3 = new THREE.AmbientLight(0x222222);
         this.scene.add(light3);

@@ -31,6 +31,7 @@ export class App {
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setClearColor(new THREE.Color(0xFFFFFF));
         this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.shadowMap.enabled = true;
         document.body.appendChild(this.renderer.domElement);
 
         this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000);
@@ -53,8 +54,9 @@ export class App {
         // World
         var world = new THREE.Mesh(
             new THREE.BoxGeometry(1000, 1, 1000),
-            new THREE.MeshPhongMaterial({ color: 0xFF637b80 })
+            new THREE.MeshLambertMaterial({ color: 0xFF637b80 })
         );
+        world.receiveShadow = true;
         this.scene.add(world);
 
         // Sample object
@@ -62,6 +64,7 @@ export class App {
             new THREE.BoxGeometry(100, 100, 100),
             new THREE.MeshStandardMaterial({ color: "blue" })
         );
+        this.sample.castShadow = true;
         this.sample.position.y = 80;
         this.scene.add(this.sample);
 

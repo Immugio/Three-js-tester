@@ -22,7 +22,8 @@ module.exports = env => {
         devServer: {
             contentBase: "./",
             hot: true,
-            openPage: "index.html"
+            openPage: "index.html",
+            port: 9500
         },
         plugins: [
             new CleanWebpackPlugin(["build/*"]),
@@ -36,7 +37,7 @@ module.exports = env => {
                     include: path.resolve(__dirname, "src")
                 },
                 {
-                    test: /\.svg$/,
+                    test: /\.(svg|mov|mp4|ogv|webbm|png)$/,
                     use: "file-loader",
                     include: path.resolve(__dirname, "src")
                 }

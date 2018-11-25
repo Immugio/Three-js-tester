@@ -1,6 +1,7 @@
-const path = require("path");
-const webpack = require("webpack");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const webpack = require("webpack");
+const path = require("path");
 
 module.exports = env => {
 
@@ -27,14 +28,16 @@ module.exports = env => {
         },
         plugins: [
             new CleanWebpackPlugin(["build/*"]),
-            new webpack.HotModuleReplacementPlugin()
+            new webpack.HotModuleReplacementPlugin(),
+            new ForkTsCheckerWebpackPlugin({ workers: 2 })
         ],
         module: {
             rules: [
                 {
                     test: /\.tsx?$/,
-                    use: "ts-loader",
-                    include: path.resolve(__dirname, "src")
+                    loader: "ts-loader",
+                    include: path.resolve(__dirname, "src"),
+                    options: { transpileOnly: true }
                 },
                 {
                     test: /\.(svg|mov|mp4|ogv|webbm|png)$/,

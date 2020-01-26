@@ -13,7 +13,8 @@ module.exports = env => {
 
         mode: env.mode,
         entry: {
-            app: "./src/App.ts"
+            app: "./src/App.ts",
+            crossDot: "./src/CrossDot.ts"
         },
         devtool: env.mode === "development" ? "inline-source-map" : false,
         devServer: {

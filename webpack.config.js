@@ -15,10 +15,6 @@ module.exports = env => {
         entry: {
             app: "./src/App.ts"
         },
-        externals: {
-            "three": "THREE",
-            "detector": "Detector"
-        },
         devtool: env.mode === "development" ? "inline-source-map" : false,
         devServer: {
             contentBase: "./",
